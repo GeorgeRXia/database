@@ -1,4 +1,12 @@
+<h1>Blog's Comments</h1>
+
+
+<div class="blogpost">
+
+
 <%= @blogpost.content %>
+
+</div>
 
 
 <form class="" action='/content' method="post">
@@ -9,10 +17,12 @@ comment<input type="text" name="acomment" value="">
 
 <% @comments.each do |comment| %>
 
-<div class="">
+<div class="username">
   <%= @user.username %>
 </div>
-<div ><%= comment.acomment %></div>
+<div class= "acomment"><%= comment.acomment %></div>
 
 
 <% end %>
+
+<link rel="stylesheet" type="text/css" href="css/styling.css">

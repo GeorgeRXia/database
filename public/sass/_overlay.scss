@@ -1,0 +1,34 @@
+body {
+  background-color: green;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+
+}
+.navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #9C9C87;
+    z-index: 100;
+    border-bottom: 10px solid #74B09B;
+}
+
+.navBar ul li:hover {
+    background-color: #74B09B;
+    color:#FFF;
+}
+
+.menuBar {
+    color: #F5F5ED;
+    padding: 0px 16px;
+    height: 50%;
+    font-family: "futura";
+    list-style: none;
+    float: left;
+    text-shadow: 2px 2px black;
+}

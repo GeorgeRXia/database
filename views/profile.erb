@@ -1,15 +1,38 @@
+
+<h1>Profile</h1>
+
 <% @blogs.each do |blog| %>
+<div class="bloglist">
+
 
 <a href= '<%="/content?title=#{blog.title}"%>'>
 <div ><%= blog.title %></div>
 </a>
-<div><%= blog.content %></div>
+<div><%= blog.category %></div>
+</div>
 
 <% end %>
 
 <form action="/profile" method="post">
-	<input type="text" name="title" value="">
-	<input type="text" name="content" value="">
+	<div class="">
+		Title
+	</div>
+	<div class="">
+		<input type="text" name="title" value="">
+	</div>
+	<div class="">
+		Category
+	</div>
+	<div class="">
   <input type="text" name="category" value="">
+	</div>
+	<div class="">
+		Comment
+	</div>
+	<textarea name="content" class= "textarea"></textarea>
 	<input type="submit">
 </form>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/styling.css">
