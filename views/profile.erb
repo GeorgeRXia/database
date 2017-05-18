@@ -1,0 +1,15 @@
+<% @blogs.each do |blog| %>
+
+<a href= '<%="/content?title=#{blog.title}"%>'>
+<div ><%= blog.title %></div>
+</a>
+<div><%= blog.content %></div>
+
+<% end %>
+
+<form action="/profile" method="post">
+	<input type="text" name="title" value="">
+	<input type="text" name="content" value="">
+  <input type="text" name="category" value="">
+	<input type="submit">
+</form>

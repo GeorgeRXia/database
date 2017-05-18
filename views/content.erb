@@ -1,0 +1,17 @@
+<%= @blogpost.content %>
+
+
+<form class="" action="/content" method="post">
+comment<input type="text" name="acomment" value="">
+<input type="submit" name="submit" value="">
+</form>
+
+<% @comments.each do |comment| %>
+
+<div class="">
+  <%= @user.username %>
+</div>
+<div ><%= comment.acomment %></div>
+
+
+<% end %>
