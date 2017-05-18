@@ -12,3 +12,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :blog
 end
+
+class Title < ActiveRecord::Base
+  
+end

@@ -1,7 +1,7 @@
 <%= @blogpost.content %>
 
 
-<form class="" action="/content" method="post">
+<form class="" action='<%="/content?title=#{@title}"%>' method="post">
 comment<input type="text" name="acomment" value="">
 <input type="submit" name="submit" value="">
 </form>

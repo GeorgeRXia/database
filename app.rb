@@ -47,6 +47,9 @@ end
 get "/content" do
   @user = User.find(session[:user_id])
   @title= params[:title]
+  # Title.create(header: @title)
+  # reference = Title.where(header: @title).first
+
   @blogpost = @user.blogs.where(title: @title ).first
 
 
@@ -60,9 +63,10 @@ get "/content" do
 end
 
 post "/content" do
+  @title = params[:title]
   user = session[:user_id]
   blogpost = session[:blog_id]
 
   Comment.create(acomment: params[:acomment],user_id: user, blog_id: blogpost)
-  redirect "/content"
+  redirect '/content?title=#{@title}'
 end
