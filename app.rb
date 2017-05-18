@@ -46,15 +46,32 @@ end
 
 get "/content" do
   @user = User.find(session[:user_id])
+
+
   @title= params[:title]
   # Title.create(header: @title)
   # reference = Title.where(header: @title).first
 
+  if @title
+
   @blogpost = @user.blogs.where(title: @title ).first
+
+else
+  helpFindBlogTitle = Comment.find(session[:comment_id]).blog_id
+@title = Blog.find(helpFindBlogTitle).title
+  @blogpost = @user.blogs.where(title: @title ).first
+end
 
 
   currentUser = User.where(username: @username).first
+
+  if @blogpost
   session[:blog_id] = @blogpost.id
+
+else
+session[:blog_id]
+
+end
 
   @blog = Blog.find(session[:blog_id]).comments
   @comments = @blog
@@ -64,9 +81,18 @@ end
 
 post "/content" do
   @title = params[:title]
+  p @title
+    p @title
+      p @title
+        p @title
   user = session[:user_id]
   blogpost = session[:blog_id]
 
   Comment.create(acomment: params[:acomment],user_id: user, blog_id: blogpost)
-  redirect '/content?title=#{@title}'
+
+  commentSession = Comment.where(blog_id: blogpost).first
+
+  session[:comment_id] = commentSession.id
+  # redirect '/content?title=#{@title}'
+  redirect "/content"
 end
