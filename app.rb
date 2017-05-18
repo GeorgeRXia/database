@@ -37,9 +37,9 @@ get "/profile" do
 end
 
 post "/profile" do
-  user = User.find(session[:user_id])
+  user = session[:user_id]
 
-  Blog.create(title: params[:title],category: params[:category] , content: params[:content] , user_id: user.id)
+  Blog.create(title: params[:title],category: params[:category] , content: params[:content] , user_id: user)
 
   redirect "/profile"
 end
@@ -49,29 +49,22 @@ get "/content" do
 
 
   @title= params[:title]
-  # Title.create(header: @title)
-  # reference = Title.where(header: @title).first
+
 
   if @title
 
   @blogpost = @user.blogs.where(title: @title ).first
 
-else
+  else
   helpFindBlogTitle = Comment.find(session[:comment_id]).blog_id
 @title = Blog.find(helpFindBlogTitle).title
   @blogpost = @user.blogs.where(title: @title ).first
 end
 
 
-  currentUser = User.where(username: @username).first
 
-  if @blogpost
   session[:blog_id] = @blogpost.id
 
-else
-session[:blog_id]
-
-end
 
   @blog = Blog.find(session[:blog_id]).comments
   @comments = @blog
@@ -80,11 +73,7 @@ end
 end
 
 post "/content" do
-  @title = params[:title]
-  p @title
-    p @title
-      p @title
-        p @title
+
   user = session[:user_id]
   blogpost = session[:blog_id]
 
@@ -93,6 +82,6 @@ post "/content" do
   commentSession = Comment.where(blog_id: blogpost).first
 
   session[:comment_id] = commentSession.id
-  # redirect '/content?title=#{@title}'
+
   redirect "/content"
 end
