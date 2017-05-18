@@ -48,6 +48,7 @@ get "/content" do
   @user = User.find(session[:user_id])
 
 
+
   @title= params[:title]
 
 
@@ -60,8 +61,6 @@ get "/content" do
 @title = Blog.find(helpFindBlogTitle).title
   @blogpost = @user.blogs.where(title: @title ).first
 end
-
-
 
   session[:blog_id] = @blogpost.id
 
