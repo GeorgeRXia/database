@@ -1,5 +1,5 @@
 body {
-  background-color: green;
+  background-color: white;
 }
 
 h1 {
@@ -13,13 +13,13 @@ h1 {
     left: 0;
     width: 100%;
     height: 50px;
-    background-color: #9C9C87;
+    background-color: black;
     z-index: 100;
-    border-bottom: 10px solid #74B09B;
+    border-bottom: 10px solid grey;
 }
 
 .navBar ul li:hover {
-    background-color: #74B09B;
+    background-color: red;
     color:#FFF;
 }
 
@@ -27,8 +27,17 @@ h1 {
     color: #F5F5ED;
     padding: 0px 16px;
     height: 50%;
-    font-family: "futura";
+    font-family: $font-choice;
     list-style: none;
     float: left;
     text-shadow: 2px 2px black;
+}
+
+
+.layout-image{
+background-image: url("../images/banner_city_overlay.jpg");
+height: 300px;
+width: 100%;
+background-size: 100% 100%;
+
 }
